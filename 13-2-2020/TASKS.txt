@@ -1,0 +1,10 @@
+# insert data in table                                                           //15 m   //f
+# fun. => return [[[,],..],int]                                                          // f
+# send data to page                                                                       //f
+# view 
+# redesi  
+--------------------------------------------
+#react js{ data, }
+#react native
+#react desktop
+#ionic 

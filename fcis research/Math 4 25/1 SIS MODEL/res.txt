@@ -1,0 +1,85 @@
+what is DE ?
+equation containing the derivatives of one or more dependent variables, with
+respect to one or more independent variables, is said to be a differential equation
+ 
+what is type of views to DE?
+ODE / PDE
+liner
+by degree
+
+
+methods to solve ODE using separation of variables
+
+exact differential equation
+
+Bernoulli differential equation
+
+constant coefficient differential equations  m2 ,m1..
+
+The auxiliary equation is
+
+
+Differential operators 
+
+
+
+what is CONDITION(S) OF  SIS  ?
+NO death and No birth 
+NO immunity
+
+why do you use SIS ?
+
+because you will  Know :
+How epidemics spread
+When  is people healed ?
+The rate of increase in disease
+
+solve SIS
+here are no death and birthday
+so that N = S + I = Canstant  where S => good people , I => bad people , N => all poeple
+D S = - D I
+D  I = -B 
+alpha => rate of recovering
+baytal => rate of infection
+
+K= B-&
+m=B/N
+K ln c = ln z
+------------------------------------
+s(0) number of people that good
+---------------------------------
+DI = B/N (N- I) .I  - & I  = BN.I/N - BI.I/N  - & I = BI - BI.I/N  - & I
+   = (B-&)I - B/N I.I                                                           let u  = I ^ -1 , I = u ^ -1 
+                                                                                   DI = - u ^ -2  . Du
+- u ^ -2  . Du =  (B-&) u ^ -1   -  B/N u ^ -2   * u ^ 2
+ -Du =  (B-&) u   -  B/N                          
+  Du =  -(B-&) u  +  B/N                      let K= B-&  m=B/N
+  Du =  -k u  + m   
+   du/ ( -k u  + m   )  = dt
+  (-1/k) .  ln(  -k u  + m )  = t  + c
+
+      ln(  -k u  + m ) = -kt +kc           let kc = ln z
+      ln(  -k u  + m ) = -kt + ln z       
+      -k u  + m = e ^ (-kt + ln z)  = e ^ (-kt) . z
+      -k I ^ -1 + m =  e ^ (-kt) . z
+      -k I ^ -1     =  e ^ (-kt) . z  - m
+      -k / ( e ^ (-kt) . z  - m ) = I
+      I =  k / (  m - e ^ (-kt) . z  ) 
+          
+garphic
+
+relation between I and time ?
+
+more people is high more  the number of infected people is more  
+
+SIS AND COVID 19
+if you Ignores immunity and Determine the fixed number of people
+SIS will give you Rough numbers on the spread of the disease
+
+
+
+
+
+
+
+

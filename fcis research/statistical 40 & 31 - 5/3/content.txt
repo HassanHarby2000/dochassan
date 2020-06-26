@@ -1,0 +1,7 @@
+The definiition of classifying
+What is Decision tree
+Determine the best attribute test condition
+Example 1
+Example 2
+Decision Tree Advantages and Disadvantages
+Decision Tree Code with Python

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Quran</title>
+    <style>
+          #divshow{
+            width: 50%;
+
+            margin-left: 30%;
+          }
+
+          .btn-radius{
+          padding: 3px 32px; weight:10px; border: 2px solid ; border-radius: 25px;
+          }
+          .imgover
+          {
+          position:absolute;
+          top: 0;
+          left: 30%;
+          z-index: 2;
+          }
+          .inimg
+          {
+          position: relative;
+
+          top: 10;
+          left: 10;
+          z-index:3 ;
+
+          /* display: none; */
+          }
+
+    </style>
+  </head>
+  <body>
+     <div id="divaya">
+
+     </div>
+      <div id="divshow" class="">
+          <img src="http://www.islamicbook.ws/4/2.png" alt="" id="page" class="imgover">
+        <div class="inimg">
+
+
+          <input type="button" id="Runbtn" name="" value="GO To" class="btn-radius">
+          <input type="text" id="pagenum" placeholder="start from 2" name="" value="2" class="btn-radius">
+
+            <input type="button" id="prevbtn" name="" value="prev" class="btn-radius">
+
+              <input type="button" id="nextbtn" name="" value="next" class="btn-radius"> <br> <br>
+              <select id="Quranprint" class="" name="">
+                <option value="3">doule</option>
+                <option value="1">mabynh</option>
+                <option value="4" selected>7raman</option>
+              </select>
+        </div>
+
+
+    </div>
+  </body>
+  <!-- has p4 -->
+  <script src="pagedata4.js"> </script>
+  <script type="text/javascript">
+
+   var cur_page=2;
+
+    var divshow = document.getElementById("divshow") ;
+      // document.getElementsByClassName("divaya").addEventListener("click",Run);
+    document.getElementById("Runbtn").addEventListener("click",Run);
+    document.getElementById("nextbtn").addEventListener("click",next);
+    document.getElementById("prevbtn").addEventListener("click",prev);
+    function fromtnum(n) {
+      var newfromt ;
+      if       (  (n+"").length==1 )newfromt="00"+n ;
+      else if  (  (n+"").length==2) newfromt="0"+n  ;
+      return newfromt;
+    }
+    function showaya() {
+        document.getElementById("divaya").innerHTML="";
+    var dataarr=  p4[""+cur_page];
+    for (var i = 0; i < dataarr.length; i++) {
+    var surah=  ""+dataarr[i]["surah"];
+    for (var j =   dataarr[i]["aya"][0]; j <= dataarr[i]["aya"][1]; j++) {
+
+    console.log(fromtnum(surah)+fromtnum(j)) ;
+
+    document.getElementById("divaya").innerHTML+="<a href=http://verse.mp3quran.net/data/Abdul_Basit_Mujawwad_128kbps/"+fromtnum(surah)+fromtnum(j)+".mp3"+" >"+fromtnum(surah)+fromtnum(j)+".mp3<br></a>"
+    }
+
+    }
+    }
+    function Run() {
+        var written = document.getElementById("Quranprint").value ;
+        var pagenum = document.getElementById("pagenum").value;
+cur_page=pagenum;
+      document.getElementById("page").src="http://www.islamicbook.ws/"+written+"/"+pagenum+".png";
+showaya();
+     }
+    function next() {
+      cur_page++;
+       document.getElementById("pagenum").value=cur_page;
+       Run();
+    }
+    function prev() {
+       if(cur_page>document.getElementById("Quranprint").value/2) cur_page--;
+       document.getElementById("pagenum").value=cur_page;
+       Run();
+    }
+  </script>
+
+</html>
+<!--
+go to
+next
+prev
+sound => json
+commant for each aya
+ -->
+<!-- eloctor -->

@@ -1,0 +1,9 @@
+https://www.geeksforgeeks.org/send-unlimited-whatsapp-messages-using-javascript/?ref=rp
+=> send message 
+https://www.w3schools.com/xml/xml_http.asp   =>  new xmlhttprequest() w3schools  // xhttp.responseText;
+
+https://www.drupal.org/  report sheet
+booking system
+
+strap
+SUITE

@@ -1,0 +1,5 @@
+N = S + I = C
+
+DS = -BSI/N + U I
+
+DI = BSI - U I

@@ -1,0 +1,58 @@
+Classification is  the proccess of dividing the datasets into different categories or groups by adding label
+%%%%%%%%%%%
+what is Decision tree ?
+A decision tree is a graphical representation of all the possible solutions to decision based on certain conditons
+%%%%%%%%%%%%%
+our dataset :
+
+-----------------------------
+Color  | Diameter  |  Label  |
+Green  |     3     | mango   |
+Yellow |     3     | mango   |
+Red    |     1     | Grape   |
+Red    |     1     | Grape   |
+Yellow |     3     | Lemon   |
+------------------------------
+         IS Diameter  >= 3
+     flase                 true
+Grape                        IS color == Green  
+                          flase              ture
+                    Lemon    mango             mango
+ 
+Determine the attribute taht base classifies the traning data.how do you that ?
+cal the informtion Gain  for each attribute than choose the highest Gain  
+
+Decision Tree Algorithm Advantages and Disadvantages
+Advantages:
+1.Decision Trees are easy to explain. It results in a set of rules.
+2.It follows the same approach as humans generally follow while making decisions.
+3.Interpretation of a complex Decision Tree model can be simplified by its visualizations. 
+Even a naive person can understand logic.
+4.The Number of hyper-parameters to be tuned is almost null.
+Disadvantages:
+1.There is a high probability of overfitting in Decision Tree.
+2.Generally, it gives low prediction accuracy for a dataset as compared to other machine learning algorithms.
+3.Information gain in a decision tree with categorical variables gives a biased response for attributes with greater no. of categories.
+4.Calculations can become complex when there are many class labels.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Decision Tree 14
+%%%%%%%%%%%%%%%%%%%%%%%%
+Terminologies 17
+%%%%%%%%%%%%%%%%%%%%%%%%
+CART Algorithm
+	which Question to ask and When
+	Determine the attribute taht base classifies the traning data
+	
+
+	Entropy is just a metric which measures the impurity 28
+                 - P(yes) log2 P(yes) -  P(no) log2 P(no)                                          29
+	 informtion Gain 
+			 Measures the reductin in entropy 
+			 Decides which attribute should be selected as the decision node
+			 Entropy(S)-[ (Weighted Avg)*Entropy(each feature) ]	
+	Bluid your Desicion tree
+	1. compute the entropy for Data set 34
+	
+	2. which Node to select As Root Node ? 35
+		slecet Max Gain 
+ 

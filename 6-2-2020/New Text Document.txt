@@ -1,0 +1,112 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <string>
+#include<algorithm>
+#include <set>
+#include <map>
+using namespace std;
+
+int main()
+{
+    //a
+//     int n1=0,n2=1;
+//     bool is_n1=0;
+//     int s;cin >> s;
+//     string a;
+//     cin>>a;
+//     if(a.size()==2){
+//         if(a[0]==a[1]) cout<<1;
+//         else cout<<0;
+//     }
+//     else if(a.size()==1) cout << 0;
+//     else{
+//     for(int i=1;i<a.size();i++){
+//           if(a[i-1]==a[i]) is_n1=!is_n1;
+//         if(is_n1)n1++;
+//         else n2++;
+//     }
+//   cout<<min(n1,n2);
+        
+//     }
+
+// b
+int size; cin>>size;
+ int arr[100002];
+for(int i=0;i<size;i++)cin>>arr[i];
+ sort(arr,arr+size);
+int t; cin>>t;
+long long y,z,sum;
+for(int i=0;i<t;i++){
+    long long cnt=0;
+    cin>>y>>z;
+    sum=pow(y+z,0.5);
+    
+    
+  if(arr[size/2]>=sum){
+    cnt=size/2+1;
+    for(int j=size/2+1;j<size;j++){
+        if(arr[j]>=sum)cnt++;
+    }
+  }
+  else
+  {
+         for(int j=0;j<size/2;j++){
+        if(arr[j]>=sum)cnt++;
+  }
+}
+if(sum)cout<<sum;
+else cout<<-1;
+}
+
+// //c
+// long long size , sum=0,input,x ; cin >> size>>x;
+// for(int i=0;i<size&&cin>>a;i++)sum+=(a%x);
+// if(sum%x)cout<<"No";
+// else cout<<"Yes";
+// // d
+// string l,r; cin >> l>> r;
+// // l 6 0   - 6 9    7 1
+// l.size();
+// if(l.size()==r.size())
+// r[0]-l[0]
+// //fn(6,9,3) [600,999] (9-6+1)*9P(3-1)
+// //fn()
+
+
+// e
+    // int size; cin>>size;
+    // int aaa[100002];
+  
+    // for(int i=0;i<size;i++)cin>>aaa[i];
+    //   sort(aaa,aaa+size);
+    //   if(size%2)
+    //   if(aaa[size/2]==1)cout<<"Etman";
+    //   else cout<<"Salman";
+    //   else {
+    //         if(aaa[size/2]==1)cout<<"Etman";
+    //         else if(aaa[size/2-1]==2)cout<<"Salman";
+    //         else cout<<"Tie";
+    //   }
+    
+    // //f 
+    // int num,sum=0,a; cin>>num; 
+    // std::map<int, bool> find ;
+    // for(int i=0;i<num&&cin>>a;i++)
+    // if(!find[a]){
+    //     sum+=a;
+    //     find[a]=true;
+    // }
+    
+    // cout<< sum;
+    
+    // cout<<"Hello World";
+
+    return 0;
+}

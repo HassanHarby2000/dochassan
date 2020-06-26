@@ -1,0 +1,215 @@
+Definition: Differential Equation
+An equation containing the derivatives of one or more dependent variables, with
+respect to one or more independent variables, is said to be a differential equation
+(DE):
+an(x)
+dny
+dxn
++ an−1(x)
+dn−1y
+dxn−1 + ... + a1(x)
+dy
+dx
++ a0(x)y = g(x)
+Examples:
+(i) d4y
+dx4 + y2 = 0 (ii) y
+"" − 2y
+" + y = 0 (iii) ¨s = −32 (iv)
+∂2u
+∂x2 = −2
+∂u
+∂t
+Classification of differential equations
+(a) Classification by Type:
+Ordinary differential equations - ODE
+d2y
+dx2 − dy
+dx
++ 6y = 0
+Partial differential equations - PDE
+∂2u
+∂x2 = ∂2u
+∂t2 − 2
+∂u
+∂t
+(b) Classification by Order:
+The order of the differential equation is the order of the highest derivative in the
+equation.
+Example:
+nth-order ODE:
+F
+!
+x, y, y
+!
+, ..., y(n)
+"
+= 0 (1)
+Normal form of (1)
+dny
+dxn = f
+!
+x, y, y
+!
+..., y(n−1)"
+(c) Classification as Linear or Non-linear:
+An nth-order ODE (1) is said to be linear if it can be written in this form
+an(x)
+dny
+dxn
++ an−1(x)
+dn−1y
+dxn−1 + ... + a1(x)
+dy
+dx
++ a0(x)y = g(x)
+Examples:
+Linear: (y − x)dx + 4xdy = 0 y
+"" − 2y
+" + y = 0 d3y
+dx3 + 3x
+dy
+dx − 5y = ex
+Nonlinear: d4y
+dx4 + y2 = 0 d2y
+dx2 + sin(y) = 0 (1 − y)y
+" + 2y = ex
+Solution of an ODE:
+Any function φ defined on an interval I and possessing at least n derivatives that
+are continuous on I, which when substituted into an n-th-order ordinary differential
+equation reduces the equation to an identity, is said to be a solution of the equation
+on the interval.
+In other words:
+a solution of an nth-order ODE is a function φ that possesses at least n derivatives
+and
+F
+!
+x, φ(x), φ!
+(x), ..., φ(n)
+(x)
+"
+= 0 (2)
+for all x ∈ I. Alternatively we can denote the solution as y(x).
+Interval of definition:
+A solution of an ODE has to be considered simultaneously with the interval I which
+we call
+the interval of definition
+the interval of existence,
+the interval of validity, or
+the domain of the solution.
+It can be an open interval (a, b), a closed interval [a, b], an infinite interval (a, ∞)
+and so on.
+Example:
+Verify that the function y = xex is a solution of the differential equation
+y!! − 2y! + y = 0 on the interval (−∞, ∞):
+From the derivatives
+y
+! = xex + ex
+y
+!! = xex + 2ex
+we see
+l.h.s. : y
+!! − 2y
+! + y = !
+xex + 2ex"
+− 2
+!
+xex + ex"
++ xex = 0
+r.h.s. : 0
+that each side of the equation is the same for every real number x.
+A solution that is identically zero on an interval I, i.e. y = 0, ∀x ∈ I, is said to be
+trivial.
+Example:
+Verify that the function y = xex is a solution of the differential equation
+y!! − 2y! + y = 0 on the interval (−∞, ∞):
+From the derivatives
+y
+! = xex + ex
+y
+!! = xex + 2ex
+we see
+l.h.s. : y
+!! − 2y
+! + y = !
+xex + 2ex"
+− 2
+!
+xex + ex"
++ xex = 0
+r.h.s. : 0
+that each side of the equation is the same for every real number x.
+A solution that is identically zero on an interval I, i.e. y = 0, ∀x ∈ I, is said to be
+trivial.
+This%box%indicates%a%problem%that%will%be%worked%out%in%our%lectures.%
+Example:
+Verify that the function y = xex is a solution of the differential equation
+y!! − 2y! + y = 0 on the interval (−∞, ∞):
+From the derivatives
+y
+! = xex + ex
+y
+!! = xex + 2ex
+we see
+l.h.s. : y
+!! − 2y
+! + y = !
+xex + 2ex"
+− 2
+!
+xex + ex"
++ xex = 0
+r.h.s. : 0
+that each side of the equation is the same for every real number x.
+A solution that is identically zero on an interval I, i.e. y = 0, ∀x ∈ I, is said to be
+trivial.
+Solution curve:
+is the graph of a solution φ of an ODE.
+The graph of the solution φ is NOT the same as the graph of the functions φ as
+the domain of the function φ does not need to be the same as the interval I of definition (domain) of the solution φ.
+Example:
+Explicit solutions:
+a solution in which the dependent variable is expressed solely in terms of the independent variable and constants.
+Example:
+y = φ(x) = e0.1 x2
+is an explicit solution of the ODE
+dy
+dx = 0.2xy
+Implicit solutions:
+A relation G(x, y) = 0 is said to be an implicit solution of an ODE on an interval
+I provided there exists at least one function φ that satisfies the relation as well as the
+differential equation on I.
+Example:
+x2 + y2 = 25
+is an implicit solution of the ODE
+dy
+dx = −x
+y
+on the interval (−5, 5).
+Notice that also x2 + y2 − c = 0 satisfies the ODE above.
+Families of solutions:
+A solution φ of a first-order ODE F(x, y, y!
+) = 0 can be referred to as an integral of
+the equation, and its graph is called an integral curve.
+A solution containing an arbitrary constant (an integration constant) c represents
+a set
+G(x, y, c) = 0
+called a one-parameter family of solutions.
+When solving an nth-order ODE F(x, y, y!
+, ..., y(n)
+) = 0, we seek an n-parameter
+family of solutions G(x, y, c1, c2, ..., cn) = 0.
+A single ODE can possess an infinite number of solutions!
+A particular solution:
+is a solution of an ODE that is free of arbitrary parameters.
+Example:
+y = cx − x cos x is an explicit solution of xy" − y = x2 sin x on (−∞, ∞).
+The solution y = −x cos x is a particular solution corresponding to c = 0.
+A singular solution:
+a solution that can not be obtained by specializing any of the parameters in the
+family of solutions.
+Example:
+y = (x2/4 + c)
+2 is a one-parameter family of solutions of the DOE dy/dx = xy1/2.
+Also y = 0 is a solution of this ODE but it is not a member of the family above.
+It is a singular solution.

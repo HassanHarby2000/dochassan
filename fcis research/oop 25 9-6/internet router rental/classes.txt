@@ -1,0 +1,15 @@
+abstract class user{
+abstract void payment();
+}
+---------------------
+  class Resident extends user
+-----------------------------
+  class Foreigner extends user 
+---------------------
+class router
+---------------------
+class reservation 
+--------------------
+class invoice 
+--------------------------
+resis - login - reservation -  create router

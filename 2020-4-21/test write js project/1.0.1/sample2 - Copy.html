@@ -1,0 +1,72 @@
+<head>
+  <script>
+window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
+var fs = null;
+
+window.requestFileSystem(window.TEMPORARY, 1024 * 1024, function (filesystem) {
+    fs = filesystem;
+}, errorHandler);
+
+fs.root.getFile('Hello.txt', {
+    create: true
+}, null, errorHandler);
+
+function errorHandler(e) {
+  var msg = '';
+
+  switch (e.code) {
+    case FileError.QUOTA_EXCEEDED_ERR:
+      msg = 'QUOTA_EXCEEDED_ERR';
+      break;
+    case FileError.NOT_FOUND_ERR:
+      msg = 'NOT_FOUND_ERR';
+      break;
+    case FileError.SECURITY_ERR:
+      msg = 'SECURITY_ERR';
+      break;
+    case FileError.INVALID_MODIFICATION_ERR:
+      msg = 'INVALID_MODIFICATION_ERR';
+      break;
+    case FileError.INVALID_STATE_ERR:
+      msg = 'INVALID_STATE_ERR';
+      break;
+    default:
+      msg = 'Unknown Error';
+      break;
+  };
+
+  console.log('Error: ' + msg);
+}
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+    var fh = fso.CreateTextFile("c:\\Test.txt", 8, true);
+    fh.WriteLine("foo");
+    fh.Close();
+  </script>
+</head>
+
+<form onSubmit="WriteToFile(this)">
+<label>Type your first name:</label>
+<input type="text" name="FirstName" id="firstName" size="20">
+ 
+<label>Type your last name: </abel>
+<input type="text" name="LastName" id="lastName" size="20">
+ 
+<input type="submit" value="submit">
+</form>
+
+<script> 
+function WriteToFile(passForm) {
+ 
+    set fso = CreateObject("Scripting.FileSystemObject"); 
+    set s   = fso.CreateTextFile("/filename.txt", True);
+ 
+    var firstName = document.getElementById('FirstName');
+    var lastName  = document.getElementById('lastName');
+ 
+    s.writeline("First Name :" + FirstName);
+    s.writeline("Last Name :" + lastName);
+ 
+    s.writeline("-----------------------------");
+    s.Close();
+ }
+</script> 

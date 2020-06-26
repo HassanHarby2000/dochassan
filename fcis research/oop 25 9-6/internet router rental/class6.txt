@@ -1,0 +1,581 @@
+
+import javax.swing.JFrame;
+
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+import java.util.*;
+
+ abstract class user{
+private int userID ;
+private String userName ;
+private String Password;
+private int age ;
+private double money;
+public user(int userID,String userName,String Password,int age,double money){
+ this.Password= Password;
+ this.userID = userID;
+ this.userName = userName ;
+ this.age = age ;
+ this.money = money ;
+}
+public   void   setuserID (int userID ){this.userID=userID ;}
+public   void   setuserName (String userName ){this.userName=userName ;}
+public   void   setPassword(String Password){this.Password=Password ;}
+public   void   setAge(int age){ this.age=age ;}
+public   int    getAge(){ return age; }
+public   int    getuserID(){ return userID ; }
+public   String getuserName (){return userName   ;}
+public   String getPassword(){return Password  ;}
+public   void   setmoney(int money){ this.money=money ;}
+public   double    getMoney(){ return money; }
+public abstract  double payment( double fees );
+}
+
+
+
+// class Resident  
+// --------------------------------
+class Resident  extends user {
+
+public Resident (int userID,String userName,String Password,int age,double money){
+super(userID,userName,Password,age,money);
+}
+
+public   double payment( double fees ){
+return fees*0.25;
+}
+}
+
+// class Foreigner 
+// --------------------------------
+class Foreigner extends user {
+
+public Foreigner (int userID,String userName,String Password,int age,double money){
+super(userID,userName,Password,age , money);
+}
+
+public   double payment( double fees ){
+return fees ;
+}
+}
+
+// class router
+// --------------------------
+class router{
+private int unique_serial_number ;
+private String model ;
+private int number_of_ports ;
+private double price ;
+public router(int serial_number , String model ,int number_of_ports ,double price  ){
+  this.unique_serial_number=serial_number;
+  this.price = price ;
+  this.number_of_ports = number_of_ports ;
+  this.model=model;  
+}
+public   String getmodel (){return model   ;}
+public   int getnumber_of_ports(){return number_of_ports  ;}
+public   int getunique_serial_number(){return unique_serial_number  ;}
+public double getprice(){return price  ;}
+
+}
+
+// class reservation 
+// --------------------------
+class reservation {
+ user   _user   ;
+ router _router ;
+ Date stdate ;
+ String type ;
+ public reservation (user _user, router _router,Date stdate,String type) {
+ this._user = _user ;
+ this._router = _router ; 
+ this.stdate = stdate ; 
+ this.type = type;
+}
+}
+// class invoice 
+// --------------------------
+class invoice {
+public invoice (String msg){
+  JOptionPane.showMessageDialog(null, msg );
+}
+ 
+
+}
+// InvadlidDataException
+// -----------------------------------------
+class InvadlidDataException extends Exception  {
+  static int nEntries;
+public InvadlidDataException  (String msg){
+  JOptionPane.showMessageDialog(null, msg ,
+      "Error", JOptionPane.ERROR_MESSAGE);
+}
+
+}
+
+
+// Registerpanel 
+// -----------------------------------------
+class Registerpanel extends JPanel implements ActionListener   {
+//  Employee employee[]=new Employee[3] ;
+
+  
+private int userID ;
+private String userName ;
+private String Password;
+static int age ;
+
+  JLabel lab1 = new JLabel("User ID");
+  JLabel labAge = new JLabel("Age");
+  JLabel lab2 = new JLabel("userName ");
+  JLabel lab3 = new JLabel("Password");
+  JLabel lab4 = new JLabel("Re-enter Password" );
+  
+  JTextField textField1=new JTextField();;
+  JTextField textField2=new JTextField();;
+  JTextField textField3=new JPasswordField ();;
+  JTextField textField4=new JPasswordField ();;
+  JTextField textFieldAge =new JTextField();;
+ 
+ JButton  Registerbtn = new JButton("Register");
+ 
+   public Registerpanel(){
+      add(labAge); 
+       add(textFieldAge); 
+        add(lab1);
+        add(lab2);
+        add(lab3);
+        add(lab4);
+        add(textField1);
+        add(textField2);
+        add(textField3);
+        add(textField4);
+
+        add(Registerbtn );
+      
+
+
+
+  Registerbtn.setActionCommand("Register");
+  Registerbtn.addActionListener(this);
+  
+} 
+@Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        //setSize
+        textField1.setSize(100,20);
+         textField2.setSize(100,20);
+          textField3.setSize(100,20);
+         textField4.setSize(100,20);
+        textFieldAge.setSize(100,20);
+//pos
+        
+          lab1.setLocation(25,60);
+         lab2.setLocation(25,80);
+          lab3.setLocation(25,100);
+         lab4.setLocation(25,120);
+         labAge.setLocation(25,140);
+          textField1.setLocation(200,60);
+         textField2.setLocation(200,80);
+          textField3.setLocation(200,100);
+         textField4.setLocation(200,120);
+textFieldAge.setLocation(200,140);
+
+         
+         Registerbtn.setLocation(150,220);
+         
+         
+
+        
+       
+        
+
+    }
+ 
+void clear(){
+  textField1.setText("");
+         textField2.setText("");
+          textField3.setText("");
+         textField4.setText("");
+         
+}
+   public void actionPerformed(ActionEvent e) {
+ if ("Register".equals(e.getActionCommand())) {
+
+Main.from1.remove(Main.pnl) ;
+Main.pnl = new Loginpanel();
+Main.from1.add(Main.pnl) ;
+Main.from1.invalidate();
+Main.from1.validate();
+Main.from1.repaint();
+    }  
+}
+
+
+}// end class
+
+// Loginpanel 
+// -----------------------------------------
+class Loginpanel extends JPanel implements ActionListener   {
+//  Employee employee[]=new Employee[3] ;
+
+  
+private int userID ;
+private String userName ;
+private String Password;
+static int age ;
+
+  
+   
+  JLabel lab2 = new JLabel("userName ");
+  JLabel lab3 = new JLabel("Password");
+   
+  
+  
+  JTextField textField2=new JTextField();;
+  JTextField textField3=new JPasswordField ();;
+   
+  
+ 
+ JButton  Loginbtn = new JButton("Login");
+ 
+   public Loginpanel(){
+      
+        
+        add(lab2);
+        add(lab3);
+         
+        add(textField2);
+        add(textField3);
+        
+
+        add(Loginbtn );
+      
+
+
+
+  Loginbtn.setActionCommand("Login");
+  Loginbtn.addActionListener(this);
+  
+} 
+@Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        //setSize
+         
+         textField2.setSize(100,20);
+          textField3.setSize(100,20);
+         
+//pos
+        
+           
+         lab2.setLocation(25,80);
+          lab3.setLocation(25,100);
+          
+           
+         textField2.setLocation(200,80);
+          textField3.setLocation(200,100);
+          
+ 
+
+         
+         Loginbtn.setLocation(150,220);
+         
+         
+
+        
+       
+        
+
+    }
+ 
+ 
+   public void actionPerformed(ActionEvent e) {
+ if ("Login".equals(e.getActionCommand())) {
+
+    }  
+}
+
+
+}// end class
+
+
+// homepanelwithlogin 
+// -----------------------------------------
+class homepanelwithlogin  extends JPanel implements ActionListener   {
+//  Employee employee[]=new Employee[3] ;
+ 
+  JLabel lab2 = new JLabel("About us ");
+  JLabel lab3 = new JLabel("history");
+   
+  
+  
+   
+   
+  
+ 
+ JButton  Newrouterbtn = new JButton("New router");
+ JButton  myroutersbtn = new JButton("My routers");
+ JButton  Logoutbtn = new JButton("Logout");
+public homepanelwithlogin (){
+      
+        
+        add(lab2);
+        add(lab3);
+         
+        
+
+     
+    add( Newrouterbtn );
+    add( myroutersbtn );
+    add( Logoutbtn );
+    
+
+  Newrouterbtn.setActionCommand("Newrouter");
+  Newrouterbtn.addActionListener(this);
+
+  myroutersbtn.setActionCommand("myrouters");
+  myroutersbtn.addActionListener(this);
+
+  Logoutbtn.setActionCommand("Logout");
+  Logoutbtn.addActionListener(this);
+  
+} 
+@Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+       
+         
+//pos
+        
+           
+         lab2.setLocation(150,150);
+          lab3.setLocation(150,200);
+          
+         
+
+         
+         Newrouterbtn.setLocation(25,20);
+         myroutersbtn.setLocation(25,60);
+         Logoutbtn.setLocation(300,20);
+             
+         
+
+        
+       
+        
+
+    }
+ 
+ 
+   public void actionPerformed(ActionEvent e) {
+     if ("Newrouter".equals(e.getActionCommand())) {
+    Main.ch_panal(new allroutersp( 0) );
+    }  
+}
+
+
+}// end class
+
+// myrouters
+// -----------------------------------------
+class allroutersp  extends JPanel implements ActionListener   {
+//  Employee employee[]=new Employee[3] ;
+ 
+
+   
+  int side;
+  router active_router ;
+
+  ButtonGroup group = new ButtonGroup();
+  JRadioButton btn1 = new JRadioButton("daily");
+  JRadioButton btn2 = new JRadioButton("weekly");JRadioButton btn3 = new JRadioButton("monthly");
+   
+  JLabel lab2 = new JLabel();
+  JLabel lab3 = new JLabel();
+  JLabel lab1 = new JLabel();
+  JLabel lab4 = new JLabel();
+  JLabel sidelab = new JLabel();
+ JButton  prevbtn = new JButton("prev ");
+ JButton  nextbtn = new JButton("next");
+ JButton  rentbtn = new JButton("rent ");
+ 
+ JButton  Logoutbtn = new JButton("home");
+public allroutersp (int side){
+   
+       this.side=Math.abs( side % Main.allrouters.size() );
+       active_router = Main.allrouters.get(this.side);
+      
+      lab2.setText( "model   " + active_router.getmodel () );
+     lab3.setText(   "ports   " + active_router.getnumber_of_ports() );
+      lab1.setText(  "serial_number   " +active_router. getunique_serial_number() );
+      lab4.setText(  "price  " +active_router.getprice());
+      sidelab.setText(this.side+1 + " /  " +Main.allrouters.size() );
+      
+        group.add(btn1 );
+        group.add(btn2 ); 
+        group.add(btn3 ); 
+        add(btn1);
+        add(btn2);
+        add(btn3);
+        add(lab2);
+        add(lab3);
+        add(lab1);
+        add(lab4);
+        add(sidelab);
+
+     
+    add( prevbtn );
+    add( nextbtn );
+    add( rentbtn );
+    add( Logoutbtn );
+    
+
+  prevbtn.setActionCommand("prev");
+  prevbtn.addActionListener(this);
+
+  nextbtn.setActionCommand("next");
+  nextbtn.addActionListener(this);
+
+  rentbtn.setActionCommand("rent");
+  rentbtn.addActionListener(this);
+
+  Logoutbtn.setActionCommand("home");
+  Logoutbtn.addActionListener(this);
+  
+} 
+@Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+       
+         
+//pos
+        
+           
+        lab2.setLocation(150,50);
+        lab3.setLocation(150,100);
+        lab1.setLocation(150,150);
+        lab4.setLocation(150,200);
+        sidelab.setLocation(25,300);
+
+        btn1.setLocation(100,250);
+        btn2.setLocation(170,250);
+        btn3.setLocation(240,250);
+         
+         rentbtn.setLocation(180,300);
+         nextbtn.setLocation(300,180);
+         prevbtn.setLocation(25,180);
+         Logoutbtn.setLocation(300,20);
+             
+         
+
+        
+       
+        
+
+    }
+ 
+ 
+   public void actionPerformed(ActionEvent e) {
+    if ("next".equals(e.getActionCommand())) {
+       Main.ch_panal(new allroutersp( this.side+1) );
+    }  
+    else if ("prev".equals(e.getActionCommand())) {
+      if (this.side==0) this.side=Main.allrouters.size();
+       Main.ch_panal(new allroutersp( this.side-1) );
+    }  
+    else if ("home".equals(e.getActionCommand())) {
+       
+       Main.ch_panal(new homepanelwithlogin()  );
+    } 
+    else if ("rent".equals(e.getActionCommand())) {
+      String type; 
+       if(btn1.isSelected()) type="daily" ;
+     else if(btn2.isSelected()) type ="weekly" ;
+     else if (btn3.isSelected()) type = "monthly" ;
+     else {
+        JOptionPane.showMessageDialog(null,
+         "Select daily , weekly or monthly " ,
+      "Error", JOptionPane.ERROR_MESSAGE); return ;
+     }
+     if ( Main.cur_user.payment(this.active_router.getprice() ) > Main.cur_user.getMoney()  ){
+       JOptionPane.showMessageDialog(null,
+         " you need more money  " ,
+      "Error", JOptionPane.ERROR_MESSAGE); return ;
+     }
+    //   msg what you will give money
+     Main.myrouters.add(
+      new reservation(Main.cur_user , this.active_router
+      , Calendar.getInstance().getTime(),type
+      )
+     );
+       JOptionPane.showMessageDialog(null,
+         " done ! " );
+    // remove router form  allrouters
+    Main.ch_panal( new allroutersp( this.side ) )  ;
+    //  add to  invoices 
+     new invoice ("");
+    }          
+}
+
+
+}// end class
+
+// Main
+// -----------------------------------------
+class Main {
+// cur_user
+// User data
+// chage panal()
+
+public static ArrayList<user> users = new ArrayList<user>();
+public static ArrayList <router> allrouters = new ArrayList<router>();  
+  public static ArrayList <reservation> myrouters = new ArrayList<reservation>(); 
+ public static user cur_user;
+  public static JPanel  pnl ;
+  public static JFrame from1= new JFrame();
+  public static void ch_panal(JPanel newJPanel ){
+    from1.remove(pnl) ;
+    pnl = newJPanel;
+    from1.add(pnl) ;
+    from1.invalidate();
+    from1.validate();
+    from1.repaint();
+  }
+  public static void allrouters(){
+   router _rouuter=new router(000,"xxx",3000,100);
+   allrouters.add(_rouuter);
+   _rouuter=new router(001,"xxo",3200,200);
+   allrouters.add(_rouuter);
+   _rouuter=new router(002,"xxu",3100,120);
+   allrouters.add(_rouuter);
+  }
+  public static void allusers(){
+   user _user=new Foreigner(0, "test1", "0000", 20,3000) ;
+   users.add(_user);
+   _user=new Resident(1, "test2", "2222", 22 , 2000) ;
+     users.add(_user);
+  }  
+  public static void main(String[] args) {
+    // System.out.println("Hello world!");
+    allusers();
+    allrouters();
+    cur_user=  users.get(0);
+    pnl= new homepanelwithlogin();
+   SwingUtilities.updateComponentTreeUI(from1);
+   from1.add(pnl);
+   from1.setSize(400, 400);
+
+    from1.setVisible(true);
+    
+
+  }
+}

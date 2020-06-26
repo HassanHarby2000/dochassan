@@ -1,0 +1,458 @@
+<HTML><HEAD>
+
+<title>Our project</title>
+
+<META content="text/html; charset=windows-1256" http-equiv=Content-Type>
+
+<style>
+    h1{text-align: center;}
+   body
+
+{ font-family: Tahoma,Arial;}
+
+*{box-sizing:border-box;}
+
+
+
+
+
+
+
+input[type=password]:focus, input[type=email]:focus, input[type=text]:focus
+
+{
+
+ background : #ddd;
+
+outline:none;
+
+}
+
+
+
+.line ,h1
+
+{
+
+margin-top:5px ;
+
+width:  100%;
+
+float : right ;
+
+}
+
+h1
+
+{
+
+color :#00f;Opacity:0.9;
+
+
+
+font-size: 25px;
+
+margin-top:0  ;
+
+margin-bottom:7px;
+
+}
+
+
+
+.divradio
+
+{
+
+width:  100px; 
+
+float : right ;
+
+}
+
+.halfline
+
+{
+
+margin-left:5px  ;
+
+width:   25%; 
+
+float : right ;
+
+}
+
+
+
+.select:hover
+
+{
+
+Opacity:0.7; 
+
+background-color : #ACAF50
+
+}
+
+
+
+ul{
+
+margin:0;
+
+padding:0;
+
+list-style:none;
+
+font-family:Tahoma,Arial;
+
+}
+
+.nav{
+
+
+
+width:400px;
+
+margin:20px auto;
+
+background-color:blue;
+
+padding:0 20px;
+
+min-height:40px;
+
+}
+
+.nav > li{
+
+padding:15px 10px;
+
+float:right;
+
+}
+
+.nav > li a{
+
+color:white;
+
+text-decoration:none;
+
+}
+
+.nav .menu{
+
+position:relative;
+
+}
+
+.nav .menu .submenu{
+
+position:absolute;
+
+top:42px;
+
+right:0;
+
+width:220px;
+
+background-color:white;
+
+padding:10px;
+
+webkit-box-shadow:0 1px 1px rgba(0,0,0,.5);
+
+moz-box-shadow:0 1px 1px rgba(0,0,0,.5);
+
+box-shadow:0 1px 1px rgba(0,0,0,.5);
+
+display:none;
+
+}
+
+.nav .submenu li{
+
+padding:10px;
+
+}
+
+.nav .submenu li a{
+
+color:blue;
+
+text-decoration:none;
+
+}
+
+.nav .submenu li a:hover{
+
+color:red;
+
+}
+
+.nav .menu:hover .submenu{
+
+display:block;
+
+}
+
+</style>
+
+</HEAD>
+
+<BODY dir=rtl>
+    <h1>Admin</h1>
+
+<link  rel=stylesheet         href= "sytleadmin.css">
+
+
+
+ 
+
+<h1>تقديم طلب التحاق بالمدينة الجامعية </h1>
+
+<br>
+
+<div>
+
+<ul class="nav">
+
+<li><a href="Home.htm">الصفحة الرئيسية</a>
+
+<li class="menu">
+
+<a href="">القائمة</a>
+
+<ul class="submenu">
+
+<li><a href="Register.htm">التسجيل</a>
+
+<li><a href="Logging.htm"> الدخول</a>
+
+<li><a href="admin.htm">مشرف</a></li>
+
+</ul>
+
+
+
+<li class="menu">
+
+<a href="">بخصوص</a>
+
+<ul class="submenu">
+
+<li><a href="">درجات السنة</a>
+
+<li><a href="">النتائج النهائية</a>
+
+<li><a href="">رسوم الدراسة</a></li>
+
+</ul>
+
+<li class="menu">
+
+<a href="aside_imgae.htm">تواصل معنا</a>
+
+<ul class="submenu">
+
+<li><a href="">الإعلانات </a>
+
+<li><a href="">الأماكن</a>
+
+<li><a href="" >مقالات</a></li>
+
+</ul>
+
+</li>
+
+</ul>
+
+<div class=line>
+
+<div class="select divradio"><input value=1 type=radio checked
+
+name=Nationality id=Nationality1> <label>مصرى</label> 
+
+</div>
+
+<div class="select divradio"><input value=2 type=radio 
+
+name=Nationality> <label>وافد 
+
+</label></div></div>
+
+<div class=line>
+
+<div class="select halfline"><label for=name>الاسم : </label><input id=name 
+
+ placeholder="الاسم "> </div>
+
+<div class="select halfline"> <label for=name> الرقم القومى : </label><input  
+
+placeholder="الرقم القومى "  maxlength=14 id="National_ID"> </div></div>
+
+<div class="select line"> <label for=mobi>محمول  : </label><input  
+
+placeholder="محمول  " maxlength=11 ID=mobi>      </div>
+
+<div class=line>  <select style="WIDTH: 280px" id="state"  >
+
+  <option selected >ادخل المحافظة</option>
+
+  option title=اسوان 
+
+  selected value=1.28. chcount="15">اسوان</option><option > اسيوط</option><option >الاسكندريه</option><option >الاسماعيلية</option><option >الاقصـر</option><option >البحر الاحمر</option><option >البحيرة</option><option >الجيزه</option><option >الدقهلية</option><option >السويس</option><option >الشرقيه</option><option >الغربيه</option><option >الفيوم</option><option >القاهره</option><option >القليوبيه</option><option >المنوفيه</option><option >المنيا</option><option >الوادى الجديد</option><option >بنى سويف</option><option >بورسعيد</option><option >جنوب سيناء</option><option >دمياط</option><option >سوهاج</option><option >سيناء</option><option >شمال سيناء</option><option >قنــا</option><option >كفرالشيخ</option><option >مرسى مطروح</option>
+
+  </select>  </div>
+
+<div class=line> <div class="halfline" > <select  class="select" style="FLOAT : right" id=gene  >
+
+  <option selected > النوع</option>
+
+   <option>ذكر</option>
+
+   <option>أنثى</option> </select>      </div>
+
+  <div class="halfline" > <select class="select" style="FLOAT : right" id=den  >
+
+  <option selected > الديانة</option>
+
+  <option>مسلم</option>
+
+   <option>نصراني</option></select>    </div>
+
+  </div>
+
+<div class=line></div>
+
+<div class=line></div>
+
+<div class=line></div>
+
+<div class=line></div>
+
+<div class=line></div>
+
+<div class=line></div>
+
+<div class=line></div>
+
+<div class=line></div>
+
+<div class=line></div> </div>
+
+<h2></h2>
+
+<div></div>
+
+<div class=line> <input type=button value=" طلب التحاق"  onclick="isV()"  >  </div>
+
+<div></div>
+
+<!-- Insert HTML here --><script>
+
+
+
+function isV()
+
+{
+
+var name_ = document.getElementById("name") ;
+
+var state_ = document.getElementById("state") ;
+
+var gene_ = document.getElementById("gene")   ;
+
+var den_ = document.getElementById("den");
+
+var mobi_ = document.getElementById("mobi");
+
+var National_ID_ = document.getElementById("National_ID");
+
+if(state_.value == "ادخل المحافظة" )
+
+{
+
+alert("ادخل المحافظة");
+
+return ;
+
+}
+
+if(isNaN(mobi_.value)) 
+
+{
+
+alert("  المحمول    ");
+
+return ;
+
+}
+
+if(mobi_.value.length != 11 )
+
+{
+
+alert("  المحمول  يحب أن يكون 11  رقم  ");
+
+return ;
+
+}
+
+
+
+if(isNaN(National_ID_.value)) 
+
+{
+
+alert("  الرقم القومى    ");
+
+return ;
+
+}
+
+
+
+if(National_ID_.value.length != 14 )
+
+{
+
+alert("  الرقم القومى  يحب أن يكون 14  رقم  ");
+
+return ;
+
+}
+
+var National;
+
+if(Nationality1.checked)National="مصرى";
+
+else National="وافد";
+
+if(confirm(National+ "\n" + " الاسم : "+name_.value+ "\n" + "المحافظة : " + state_.value + "\n" + "الرقم القومى : " + National_ID_.value + "\n" + "محمول : " + mobi_.value +"\n"  +" النوع : " + gene_.value + "\n" + " الديانة : " + den_.value))
+
+{
+
+Nationality1.checked=true;
+
+ mobi_.value="";
+
+ National_ID_.value="";
+
+name_.value =  "";
+
+state_.value = "ادخل المحافظة";
+
+gene_.value="النوع" ;
+
+den_.value=  "الديانة"   ;  
+
+}
+
+
+
+}
+
+</script>
+
+</BODY></HTML>

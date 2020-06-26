@@ -1,0 +1,53 @@
+/**
+ * @Route("/createAdmin", name="createAdmin")
+ */
+public function createAdmin()
+{
+
+
+ // // you can fetch the EntityManager via $this->getDoctrine()
+ //       // or you can add an argument to the action: createProduct(EntityManagerInterface $entityManager)
+ $entityManager = $this->getDoctrine()->getManager();
+ //
+       $user = new User();
+       $user->setname('hassan');
+       $user->setaddress('0000');
+       $user->setmail('asa20000928@gmail.com');
+       $user->setUserName('hassanAdmin');
+$user->setIsAdmin(1);
+    // $user->setPassword($this->passwordEncoder->encodePassword($user,  '0000' ));
+$user->setPassword('0000');
+$user->setIsGuarantor(0);
+$user->setIsDebtor(0);
+$user->setIsCreditor(0);
+$user->setMoney(0);
+$user->setWhatsApp(0);
+   // // tell Doctrine you want to (eventually) save the Product (no queries yet)
+   $entityManager->persist($user);
+
+   // actually executes the queries (i.e. the INSERT query)
+   $entityManager->flush();
+
+   return new Response('create Admin',200);
+
+
+}
+
+doctrine:
+    dbal:
+        url: '%env(resolve:DATABASE_URL)%'
+
+        # IMPORTANT: You MUST configure your server version,
+        # either here or in the DATABASE_URL env var (see .env file)
+        # server_version: '5.7'
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            App:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: 'App\Entity'
+                alias: App

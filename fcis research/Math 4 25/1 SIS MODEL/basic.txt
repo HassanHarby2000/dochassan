@@ -1,0 +1,29 @@
+dynamics of spread of and fiu
+
+http://www.houseofquran.com/qsys/quranteacher1.html
+
+why do this ?
+People is healed
+
+كيفيه انتشار الاوبئه
+
+امتى الناس تخف
+
+معدل الزياده في المرض 
+
+The rate of increase in disease
+
+time of disease
+
+-----------------------------------
+there are no deeth and Birth
+so that N = S + I = Canstant  where S => good people , I => bad people , N => all poeple
+D S = - D I
+D  I = -B 
+alpha => rate of recovering
+baytal => rate of infection
+
+
+------------------------------------
+s(0) number of people that good
+

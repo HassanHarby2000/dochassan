@@ -1,0 +1,31 @@
+kard hassan
+-----------------------------------
+this project aims  to help person that needs moneny
+-----------------------------------
+the users may be (admin - creditor - debtor - guarantor)
+-----------------------------------
+normal user :-
+ask loan :
+write two guarantor and moneny that user needs
+%%%%%%%%%%%%%%%%%
+add feeding :
+money that user expect that he can pull or pash
+%%%%%%%%%%%%%%%%%
+history:
+all feeding and all transaction
+*****************
+
+admin :-
+all loans :
+all loans in system
+%%%%%%%%%%%%%%%%%
+requested Loans :
+admin Accept or Reject loan
+%%%%%%%%%%%%%%%%%%
+edit loan :
+add creditors
+edit data of loan
+%%%%%%%%%%%%%%%%%%
+edit Account :
+who send or recieve money ?
+%%%%%%%%%%%%%%%%%

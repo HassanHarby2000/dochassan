@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Huffman </title>
+  </head>
+  <body style="background-color: #037;">
+    <input type="button" id="showbtn" name="" value="Run" style="padding: 15px 32px; weight:60px; border: 2px solid yellow; border-radius: 25px; "> <br> <br>
+    <textarea id="textarea" name="textarea" rows="20" cols="80"
+    placeholder="Enter yuor text
+     click on Run  to show each char with frequency and huffman code
+     char   frequency   code
+     "></textarea>
+<div id="show" style="color:#eee">
+
+</div>
+  </body>
+<script type="text/javascript">
+ class Node {
+constructor(val, priority) {
+  this.val = val;
+  this.priority = priority;
+  this.left=null;
+  this.right=null;
+}
+
+}
+
+ class PQ {
+constructor() {
+  this.values = [];
+  this.cnt=0;
+}
+enqueue(val, priority) {
+  let newNode = new Node(val, priority);
+  this.cnt++;
+  this.values.push(newNode);
+  let index = this.values.length - 1;
+  const current = this.values[index];
+
+  while (index > 0) {
+    let parentIndex = Math.floor((index - 1) / 2);
+    let parent = this.values[parentIndex];
+
+    if (parent.priority <= current.priority) {
+      this.values[parentIndex] = current;
+      this.values[index] = parent;
+      index = parentIndex;
+    } else break;
+  }
+}
+enqueue(newNode) {
+this.cnt++;
+  this.values.push(newNode);
+  let index = this.values.length - 1;
+  const current = this.values[index];
+
+  while (index > 0) {
+    let parentIndex = Math.floor((index - 1) / 2);
+    let parent = this.values[parentIndex];
+
+    if (parent.priority <= current.priority) {
+      this.values[parentIndex] = current;
+      this.values[index] = parent;
+      index = parentIndex;
+    } else break;
+  }
+}
+dequeue() {
+  if(this.cnt==0){return null;}
+  this.cnt--;
+  const max = this.values[0];
+  const end = this.values.pop();
+  this.values[0] = end;
+
+  let index = 0;
+  const length = this.values.length;
+  const current = this.values[0];
+  while (true) {
+    let leftChildIndex = 2 * index + 1;
+    let rightChildIndex = 2 * index + 2;
+    let leftChild, rightChild;
+    let swap = null;
+
+    if (leftChildIndex < length) {
+      leftChild = this.values[leftChildIndex];
+      if (leftChild.priority > current.priority) swap = leftChildIndex;
+    }
+    if (rightChildIndex < length) {
+      rightChild = this.values[rightChildIndex];
+      if (
+        (swap === null && rightChild.priority > current.priority) ||
+        (swap !== null && rightChild.priority > leftChild.priority)
+      )
+        swap = rightChildIndex;
+    }
+
+    if (swap === null) break;
+    this.values[index] = this.values[swap];
+    this.values[swap] = current;
+    index = swap;
+  }
+  if(this.cnt==0){this.values = [];}
+  return max;
+}
+ }
+
+// const tree = new PQ();
+// tree.enqueue(3, 2);
+// tree.enqueue(4, 5);
+// tree.enqueue(31, 1);
+// tree.enqueue(6, 3);
+// console.log(tree.dequeue()); // 4
+// console.log(tree.dequeue()); // 6
+// console.log(tree.dequeue()); // 3
+// console.log(tree.dequeue()); // 31
+</script>
+  <script type="text/javascript">
+    // var text ="ssstrasaqqeeee3246.?z";
+    showbtn.addEventListener("click",Run);
+    function Run() {
+
+
+    var text =document.getElementById("textarea").value;
+
+     // frequency for each char
+    var fre= new Map();
+     // for (var i = 0; i < text.length; i++) {
+     //  if(fre[text[i]]==undefined)fre[text[i]]=0;
+     //  fre[text[i]]++;
+     // }
+     for (var i = 0; i < text.length; i++) {
+      if(fre.has(text[i]) == false)fre.set(text[i],0);
+    fre.set(text[i],fre.get(text[i]) +1 );
+     }
+
+ const tree = new PQ();
+fre.forEach(function(v,k){
+   // tree.enqueue(k, -1*v);
+  tree.enqueue( new Node(k ,-1*v  ) ) ;
+ });
+
+
+// build tree
+while (tree.cnt!=1) {
+  var min1= tree.dequeue() ;
+  var min2= tree.dequeue() ;
+
+  var newnode= new Node(null,min2.priority +  min1.priority);
+  newnode.left=min1;
+  newnode.right=min2;
+  tree.enqueue(newnode);
+}
+// new codes
+var huffmantree= tree.dequeue();
+console.log(huffmantree);
+var numOfchar=0;var numOfbits=0;
+function testNode(node,srting) {
+  // if(node.left==null && node.right==null ) {console.log(node.val+"    "+fre.get(node.val)  +"   "+ srting );numOfchar++;numOfbits+=srting.length; return;}
+  if(node.left==null && node.right==null ) {document.getElementById("show").innerHTML  +=node.val+"  "+fre.get(node.val)  +"   "+ srting+"<br>" ;numOfchar++;numOfbits+=srting.length; return;}
+  if(node.left!=null) testNode(node.left,srting+"0");
+  if(node.right!=null) testNode(node.right,srting+"1");
+}
+document.getElementById("show").innerHTML ="";
+testNode(huffmantree,"");
+console.log(numOfchar);
+console.log(numOfbits);
+console.log(numOfbits/numOfchar +"   ~   " + Math.ceil(numOfbits/numOfchar) );
+ 
+alert("the data in format  (char   frequency   code)");
+   }
+  </script>
+</html>

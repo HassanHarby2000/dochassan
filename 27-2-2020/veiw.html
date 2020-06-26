@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{Title}}</title>
+
+	 <!--Bootsrap 4 CDN-->
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+		 <!--Fontawesome CDN-->
+	 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+ <style>
+ @import url('https://fonts.googleapis.com/css?family=Numans');
+
+ html,body{
+ /* background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+ background-size: cover;
+ background-repeat: no-repeat; */
+
+ /* height: 100%; */
+ font-family: 'Numans', sans-serif;
+ }
+
+
+	.container{
+ height: 100%;
+ align-content: center;
+ }
+
+ .card{
+ /* height: 370px;
+ margin-top: auto;
+ margin-bottom: auto;
+ width: 400px; */
+  padding: 10px;
+	border-color: #000;
+ background-color: rgba(0,0,0,0.5) !important;
+ }
+
+ .social_icon span{
+ font-size: 60px;
+ margin-left: 10px;
+ color: #FFC312;
+ }
+
+ .social_icon span:hover{
+ color: white;
+ cursor: pointer;
+ }
+
+ .card-header h3{
+ color: white;
+ }
+
+ .social_icon{
+ position: absolute;
+ right: 20px;
+ top: -45px;
+ }
+
+ .input-group-prepend span{
+ width: 50px;
+ background-color: #FFC312;
+ color: black;
+ border:0 !important;
+ }
+
+ input:focus{
+ outline: 0 0 0 0  !important;
+ box-shadow: 0 0 0 0 !important;
+
+ }
+
+ .remember{
+ color: white;
+ }
+
+ .remember input
+ {
+ width: 20px;
+ height: 20px;
+ margin-left: 15px;
+ margin-right: 5px;
+ }
+
+ .login_btn{
+ color: black;
+ background-color: #FFC312;
+ width: 100px;
+ }
+
+ .login_btn:hover{
+ color: black;
+ background-color: white;
+ }
+
+ .links{
+ color: white;
+ }
+
+ .links a{
+ margin-left: 4px;
+ }
+ </style>
+
+
+</head>
+<body>
+	<img src="http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg" class="card-img  "style="height: 100vh;" alt="...">
+	<div class="card-img-overlay">
+	<section class="features6 cid-r7tVxFKKs2" id="features6-3">
+
+	    <div class="container">
+	        <div class="row justify-content-center">
+	            <div class="col-md-12">
+
+
+
+
+
+	            </div>
+	        </div>
+
+	        <div class="row pt-5 row-content justify-content-center">
+
+
+	            <div class="card card-big col-12 col-lg-6 col-md-12 ">
+	                <div class="card-wrapper mt-auto mb-auto">
+										<div class="card-header text-center ">
+											<h3>{{cardTitle}}</h3>
+										</div>
+	                    <div class="card-box ">
+	                         		<form  action="{{ path(action_path,{ 'id':idsubmit } ) }}" method="post" >
+														<!-- {% for input in inputs %} -->
+													<div class="input-group form-group">
+														<div class="input-group-prepend">
+															<span class="input-group-text"><i class="fas "></i></span>
+														</div>
+														<input type="text" name="{{input.name}}" id="{{input.name}}" class="form-control" placeholder="{{input.name}}">
+
+													</div>
+														<!-- {% endfor %} -->
+												<div class="form-group">
+												<div class="maxl">
+													<label class="radio inline text-white font-weight-bold card-header ">
+													<input type="radio" name="Type" value="send" checked>
+															<span> send </span>
+												</label>
+												<label class="radio inline text-white font-weight-bold card-header ">
+															<input type="radio" name="Type" value="receive">
+													 <span>receive </span>
+												</label>
+												</div>
+												</div>
+													<div class="form-group">
+														<input type="submit" value="{{btn}}" class="btn float-right login_btn">
+													</div>
+												</form>
+
+	                    </div>
+	                </div>
+
+	            </div>
+
+
+	            <div   class="col-12 col-lg-6 col-md-12"  >
+	                <div class="row row-content justify-content-center">
+	                    <div  data-spy="scroll" style="max-height:300px;overflow-y: scroll; background-color: rgba(0,0,0,0.5)" class=" col-12 col-lg-6 col-md-12  scrollspy-example"  >
+	                        <div class="">
+
+	                            <div class="card-box text-white ">
+
+  {% for tra in transactionData.data %}
+		<h4 class="card-title  ">{{tra.loan}}</h4>
+	<h4 class="card-title ">{{tra.user}}</h4>
+	<h4 class="card-title  ">{{tra.date}}</h4>
+	{%if tra.receive%}
+		<h4 class="card-title mbr-fonts-style mbr-white mbr-bold display-5">receive : {{tra.receive}}</h4>
+		{% endif %}
+		{%if tra.send%}
+			<h4 class="card-title mbr-fonts-style mbr-white mbr-bold display-5">send : {{tra.send}}</h4>
+			{% endif %}
+	{% endfor %}
+
+	                            </div>
+	                        </div>
+	                    </div>
+
+
+
+
+
+	                    <div class="card col-12 col-lg-6 col-md-12" >
+	                        <div class="card-wrapper">
+
+	                            <div class="card-box  scrollspy-example " >
+	                                <h4 class="card-title mbr-fonts-style mbr-white mbr-bold display-5">{{loanData.id}}</h4>
+
+
+	                            </div>
+	                        </div>
+	                    </div>
+
+	                    <div class="card col-12 col-lg-6 col-md-12">
+	                        <div class="card-wrapper">
+
+	                            <div class="card-box text-white ">
+																<h4 class="card-title mbr-fonts-style mbr-white mbr-bold display-5">send Money:{{transactionData.sendMoney}}</h4>
+
+																<h4 class="card-title mbr-fonts-style mbr-white mbr-bold display-5">receive Money:{{transactionData.receiveMoney}}</h4>
+	                            </div>
+	                        </div>
+	                    </div>
+
+	                    <div class="card col-12 col-lg-6 col-md-12">
+	                        <div class="card-wrapper">
+
+	                            <div class="card-box ">
+	                                <h4 class="card-title mbr-fonts-style mbr-white mbr-bold display-5">Plants</h4>
+
+
+	                            </div>
+	                        </div>
+	                    </div>
+
+	                </div>
+	            </div>
+	        </div>
+
+	    </div>
+	</section>
+	 </div>
+</body>
+
+
+
+
+</html>

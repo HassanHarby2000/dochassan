@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<HTML>
+
+<head>
+
+<meta charset="UTF-8" >
+
+<meta name="descripition"content="My project">
+
+<title>My project</title>
+
+<link rel="stylesheet"href="style.css">
+
+<script>
+
+
+
+function  log_in_onclick(){
+
+  
+
+var  myInput=document.getElementById("input"),
+
+myInput2=document.getElementById("input2"),
+
+myInput3=document.getElementById("input3"); 
+
+if(myInput.value==""||myInput.value.length<4){
+
+alert(" Your name must be at least 4 characters Or be filled"); 
+
+return false;
+
+}
+
+if(myInput2.value==""||(myInput2.value.indexOf('@')==-1||myInput2.value.indexOf('.')==-1)){
+
+alert("Your e-mail must contain @ and . Or be filled"); 
+
+return false;
+
+}
+
+if(myInput3.value==""||myInput3.value.length<4){
+
+alert("Your password must be at least 4 characters Or be filled"); 
+
+return false;
+
+}
+
+
+var email_saved=  [ "hassan@yahoo.com" ,     "khald@gmail.com"            ] ;
+
+var pw_saved=  [ "0123h456789" ,     "98765d43210"] ;
+
+var name_saved=  [ "hhhh" ,     "khald"            ] ;
+
+ 
+ window.addEventListener("load",doFirst,false);
+
+var number_saved= 2;
+
+for(var i=0;i<number_saved;i++)
+
+if(myInput.value==name_saved[i])
+
+if(myInput2.value==email_saved[i] )
+
+if(myInput3.value==pw_saved[i])
+
+{
+
+ 
+
+var myElement=document.getElementById("main"),list=document.getElementById("list");
+
+ myElement.style.display="none";
+
+  list.style.display="block";
+
+
+
+ btn1.style.display="block";
+
+return true;
+
+}
+
+else
+
+{alert("Your password is wrong");
+
+return false;
+
+} 
+
+else
+
+{ alert("Your email is wrong");
+
+return false;
+
+} 
+
+
+
+alert("Your name is wrong");
+
+return false;
+
+ }
+
+function doFirst(){
+  var button=document.getElementById("Btn2");
+  button.addEventListener("click",saveInfo,false);
+  display();
+}
+function saveInfo(){
+ var myInput=document.getElementById("myInput").value;
+ var myInput2=document.getElementById("myInput2").value;
+ var myInput3=document.getElementById("myInput3").value;
+ sessionStorage.setItem(myInput,myInput2,myInput3);
+ display();
+ document.getElementById("myInput").value="";
+ document.getElementById("myInput2").value="";
+ document.getElementById("myInput3").value="";
+}
+function display(){
+  var rightbox=document.getElementById("rightbox");
+  rightbox.innerHTML="";
+  for(var i=0;i<sessionStorage.length;i++){
+    var a=sessionStorage.key(i);
+    var b=sessionStorage.getItem(a);
+    rightbox.innerHTML += a+"-"+b+"<br />";
+  }
+}
+
+window.addEventListener("load",doFirst,false);
+
+
+ 
+
+function log_out_onclick(){
+
+var  myInput=document.getElementById("input"),
+
+myInput2=document.getElementById("input2"),
+
+myInput3=document.getElementById("input3");
+
+ var myElement=document.getElementById("main"),list=document.getElementById("list");
+
+myInput.value=""; myInput2.value="";myInput3.value="";
+
+ myElement.style.display="block" ;
+
+  list.style.display="none";
+
+   btn1.style.display="none";
+
+      }
+
+/*myInput.onsubmit=function(e){
+
+if(myInput==""||myInput.length<4){
+
+alert('Your name must be at least 4 characters Or be filled');
+
+e.preventDefault();
+
+}
+
+else{
+
+return true;
+
+}
+
+}; 
+
+myInput2.onsubmit=function(e){
+
+if(myInput2==""||indexof('@')==-1&&indexof('.')==-1){
+
+alert('Your e-mail must contain @ and . Or be filled');
+
+e.preventDefault();
+
+}
+
+else{
+
+return true;
+
+}
+
+};
+
+myInput3.onsubmit=function(){
+
+if(myInput3==""|myInput3.length<4){
+
+alert('Your password must be at least 4 characters Or be filled);
+
+e.preventDefault();
+
+}
+
+else{
+
+return true;
+
+}
+
+};
+
+*/
+
+</script>
+
+<style>
+
+body{
+
+color:grey;
+
+}
+
+ul{
+
+margin:0;
+
+padding:0;
+
+list-style:none;
+
+font-family:Tahoma,Arial;
+
+}
+
+.nav{
+
+width:400px;
+
+margin:20px auto;
+
+background-color:blue;
+
+padding:0 20px;
+
+min-height:40px;
+
+display:none;
+
+}
+
+.nav > li{
+
+padding:15px 10px;
+
+float:left;
+
+}
+
+.nav > li a{
+
+color:white;
+
+text-decoration:none;
+
+}
+
+.nav .menu{
+
+position:relative;
+
+}
+
+.nav .menu .submenu{
+
+position:absolute;
+
+top:42px;
+
+left:0;
+
+width:220px;
+
+background-color:white;
+
+padding:10px;
+
+webkit-box-shadow:0 1px 1px rgba(0,0,0,.5);
+
+moz-box-shadow:0 1px 1px rgba(0,0,0,.5);
+
+box-shadow:0 1px 1px rgba(0,0,0,.5);
+
+display:none;
+
+}
+
+.nav .submenu li{
+
+padding:10px;
+
+}
+
+.nav .submenu li a{
+
+color:blue;
+
+text-decoration:none;
+
+}
+
+.nav .submenu li a:hover{
+
+color:red;
+
+}
+
+.nav .menu:hover .submenu{
+
+display:block;
+
+}
+
+input,label{
+
+width:140px;
+
+display:block;
+
+margin: 15px auto;
+
+}
+
+section{
+text-align:right;
+border:30px solid blue;
+background-color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<ul class="nav" id=list>
+
+<li><a href="Home.htm">Home</a> </li>
+
+<li class="menu">
+
+<a href="">Menu</a>
+
+<ul class="submenu">
+
+<li><a href="Register.htm">Register</a>
+
+<li><a href="Logging.htm">Logging</a>
+
+<li><a href="admin.htm">admin</a>
+
+</ul>
+
+</li>
+
+
+
+<li class="menu">
+
+<a href="">About</a>
+
+<ul class="submenu">
+
+<li><a href="">Yearwork degrees</a></li>
+
+<li><a href="">Final results</a></li>
+
+<li><a href="">Study fees</a></li>
+
+</ul>
+
+</li>
+
+<li class="menu">
+
+<a href="">Contact Us</a>
+
+<ul class="submenu">
+
+<li><a href="">Aunnocements </a></li>
+
+<li><a href="">Places</a> </li>
+
+<li><a href="" >Articles</a></li>
+
+</ul>
+
+</li>
+
+</ul>
+
+
+
+
+
+<!..Log in..>
+
+<form id="main"   >
+
+<label>Username: </label>
+
+<input type="text"name="username"placeholder="Your name" id="input">
+
+<label>E-mail: </label>
+
+<input type="text"name="email"placeholder="Your e-mail" id="input2">
+
+<label>Password: </label>
+
+<input type="password"name="password"placeholder="Your password" id="input3" >
+
+ <input  type="button"  onclick="log_in_onclick()"   value="log in" id=Btn2>
+
+</form>
+
+  <input  type="button"  onclick="log_out_onclick()" style="display:none; " value="log out" id=btn1>
+  
+<section id="rightbox">
+    Nothing yet hoss!
+</section>
+  
+
+ 
+
+
+
+<!-- hhhh  hassan@yahoo.com  0123h456789                   
+
+     khald  khald@gmail.com   98765d43210 
+
+     alert("Your data is right"); -->
+
+
+
+</body>
+
+</HTML>

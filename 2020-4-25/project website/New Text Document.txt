@@ -1,0 +1,19 @@
+translation by function.
+------------------------------
+sample(s)
+~ what the values of attrabut 
+|| chioch
++  postive
+-  negative
+`  not
+.  present 
+>> future
+<< past
+?  how much
+"  containal tech for varbs
+D  Dafrantion
+h  happenning
+G  for speaker
+-------------------------------
+~(@) => ||(-,+,-`,+`)  _ ||(.>>,<<.,.,.<<,<<,>>,) _ ?D _ ?h _ ?" _ ?G"
+h()

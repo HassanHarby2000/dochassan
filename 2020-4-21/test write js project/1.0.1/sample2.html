@@ -1,0 +1,20 @@
+<input   id=t1   />
+<input value='Save' type='button' onclick='doDL(document.getElementById("t1").value)' />
+<script type='text/javascript'>
+    //<![CDATA[
+  function doDL(s){
+    function dataUrl(data) {return "data:x-application/text," + 
+        escape(data.replace(/\r?\n/g,"\r\n"));}
+    if("\v"=="v"){//IE?
+      var d= document.open();
+      d.write(s);
+      d.execCommand( "saveAs", true,
+        location.href.split("/").reverse()[0]
+      );
+      d.close();
+     return;
+    }//end IE?
+    window.open(dataUrl(s));
+  }//end doDL()
+    //]]>
+</script>

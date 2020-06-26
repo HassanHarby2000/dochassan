@@ -1,0 +1,16 @@
+class person 
+-----------------------
+  class emp extends person
+-----------------------
+   class manger extends emp
+------------------------
+  calss user extends person
+------------------------
+class food
+------------------------
+class order
+# dilverlyman:emp
+# user:user
+# food:food
+# state: String
+------------------------

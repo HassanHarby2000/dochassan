@@ -1,0 +1,9 @@
+search
+26**9
+{
+words 
+
+}
+ 
+word
+26**4 

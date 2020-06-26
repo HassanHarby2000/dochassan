@@ -1,0 +1,218 @@
+1.intro to class
+2.how bliud tree 
+3.exmple
+4.avdant..
+5.
+* do by python to 
+The dataset is available at: “http://archive.ics.uci.edu/ml/datasets/Car+Evaluation”
+Title: Car Evaluation Database
+Decision Tree Code: Implementation with Python
+0) Import necessary libraries
+Import the necessary modules from specific libraries.
+
+import os
+import numpy as np
+import pandas as pd
+import numpy as np, pandas as pd
+import matplotlib.pyplot as plt
+from sklearn import tree, metrics
+1) Load the data set
+Use pandas module to read the bike data from the file system. Check a few records of the dataset.
+
+data =
+pd.read_csv('data/car_quality/car.data',names=['buying','maint','doors','persons','lug_boot','safety','class'])
+data.head()
+
+  buying maint doors persons lug_boot safety class
+0 vhigh  vhigh 2     2       small    low    unacc
+1 vhigh  vhigh 2     2       small    med    unacc
+2 vhigh  vhigh 2     2       small    high   unacc
+3 vhigh  vhigh 2     2       med      low    unacc
+4 vhigh  vhigh 2     2       med      med    unacc
+2) Check a few information about the data set
+data.info()
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1728 entries, 0 to 1727
+Data columns (total 7 columns):
+buying      1728 non-null object
+maint       1728 non-null object
+doors       1728 non-null object
+persons     1728 non-null object
+lug_boot    1728 non-null object
+safety      1728 non-null object
+class       1728 non-null object
+dtypes: object(7)
+memory usage: 94.6+ KB
+The training dataset has 1728 rows and 7 columns.
+
+There are no missing values in the dataset
+
+3) Identify the target variable
+data['class'],class_names = pd.factorize(data['class'])
+The target variable is marked as a class in the data frame. The values are present in string format. However, the algorithm requires the variables to be coded into its equivalent integer codes. We can convert the string categorical values into an integer code using factorize method of the pandas library.
+
+Let’s check the encoded values now.
+
+print(class_names)
+print(data['class'].unique())
+
+Index([u'unacc', u'acc', u'vgood', u'good'], dtype='object')
+[0 1 2 3]
+As we can see the values has been encoded into 4 different numeric labels.
+
+4) Identify the predictor variables and encode any string variables to equivalent integer codes
+data['buying'],_ = pd.factorize(data['buying'])
+data['maint'],_ = pd.factorize(data['maint'])
+data['doors'],_ = pd.factorize(data['doors'])
+data['persons'],_ = pd.factorize(data['persons'])
+data['lug_boot'],_ = pd.factorize(data['lug_boot'])
+data['safety'],_ = pd.factorize(data['safety'])
+data.head()
+
+        buying maint doors persons lug_boot safety class
+0       0      0     0     0       0        0      0
+1       0      0     0     0       0        1      0
+2       0      0     0     0       0        2      0
+3       0      0     0     0       1        0      0
+4       0      0     0     0       1        1      0
+Check the data types now:
+
+data.info()
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1728 entries, 0 to 1727
+Data columns (total 7 columns):
+buying      1728 non-null int64
+maint       1728 non-null int64
+doors       1728 non-null int64
+persons     1728 non-null int64
+lug_boot    1728 non-null int64
+safety      1728 non-null int64
+class       1728 non-null int64
+dtypes: int64(7)
+memory usage: 94.6 KB
+Everything is now converted to integer form.
+
+5) Select the predictor feature and the target variable
+X = data.iloc[:,:-1]
+y = data.iloc[:,-1]
+6) Train test split:
+# split data randomly into 70% training and 30% test
+X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, test_size=0.3, random_state=0)
+7) Training/model fitting
+# train the decision tree
+dtree = tree.DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=0)
+dtree.fit(X_train, y_train)
+8) Model parameters study:
+# use the model to make predictions with the test data
+y_pred = dtree.predict(X_test)
+# how did our model perform?
+count_misclassified = (y_test != y_pred).sum()
+print('Misclassified samples: {}'.format(count_misclassified))
+accuracy = metrics.accuracy_score(y_test, y_pred)
+print('Accuracy: {:.2f}'.format(accuracy))
+
+Misclassified samples: 96
+Accuracy: 0.82
+As you can see the algorithm was able to achieve a classification accuracy of 82% on the held out set. Only 96 samples were misclassified. 
+
+Learn Python Mean Median Mode now.
+
+Visualization of the decision graph:
+import graphviz
+feature_names = X.columns
+
+dot_data = tree.export_graphviz(dtree, out_file=None, filled=True, rounded=True,
+                                feature_names=feature_names,  
+                                class_names=class_names)
+graph = graphviz.Source(dot_data)  
+graph
+------------------------------------
+The definition of classifying is categorizing something or someone into a certain group or system based on certain characteristics. An example of classifying is assigning plants or animals into a kingdom and species. 
+
+The classification technique is a systematic approach to build classification models from an input dat set. For example, decision tree classifiers, rule-based classifiers, neural networks, support vector machines, and naive Bayes classifiers are different technique to solve a classification problem. Each technique adopts a learning algorithm to identify a model that best fits the relationshio between the attribute set and class label of the input data. Therefore, a key objective of the learning algorithm is to build prdictive model that accurately predict the class labels of previously unkonw records.
+
+Decision Tree Classifier is a simple and widely used classification technique. It applies a straitforward idea to solve the classification problem. Decision Tree Classifier poses a series of carefully crafted questions about the attributes of the test record. Each time time it receive an answer, a follow-up question is asked until a conclusion about the calss label of the record is reached.
+
+Determine the best attribute test Condition
+The decision tree inducing algorithm must provide a method for specifying the test condition for different attribute types as well as an objective measure for evaluating the good ness of each test condition.
+
+First, the specification of an attribute test condition and its corresponding outcomes depends on the attribute types. We can do two-way split or multi-way split, discretize or group attribute values as needed. The binary attributes leads to two-way split test condition. For norminal attributes which have many values, the test condition can be expressed into multiway split on each distinct values, or two-way split by grouping the attribute values into two subsets. Similarly, the ordinal attributes can also produce binary or multiway splits as long as the grouing does not violate the order property of the attribute values. For continuous attributes, the test condition can be expressed as a comparsion test with two outcomes, or a range query. Or we can discretize the continous value into nominal attribute and then perform two-way or multi-way split.
+
+Since there are may choices to specify the test conditions from the given training set, we need use a measurement to determine the best way to split the records. The goal of best test conditions is whether it leads a homogenous class distribution in the nodes, which is the purity of the child nodes before and after spliting. The larger the degree of purity, the better the class distribution.
+
+To determine how well a test condition performs, we need to compare the degree of impurity of the parent before spliting with degree of the impurity of the child nodes after splitting. The larger their differnce, the better the test condition. The measurment of node impurity/purity are:  Gini Index Entropy
+
+exmple	
+
+Outlook    Temperature   Humidity  Windy   Play?
+Sunny         hot         High     Weak    No
+Sunny         hot         High    Strong   No	
+Overcast      hot         High     Weak    Yes
+Rainy         mid         High     Weak    Yes
+Rainy         coot        Normal   Weak    Yes
+Rainy         coot        Normal   Strong  No
+Overcast      coot        Normal   Strong  Yes
+Sunny         mid         High     Weak    No
+Sunny         coot        Normal   Weak    Yes
+Rainy         mid         Normal   Weak    Yes
+Sunny         mid         Normal   Strong  Yes
+Overcast      mid         High     Strong  Yes
+Overcast      hot         Normal   Weak    Yes
+Rainy         mid         High    Strong   No 
+
+
+E(s) = - 9/14 log2 ( 9/14 ) - 5/14 * log2( 5/14 )  =0.94
+	
+                              yes
+E(Outlook = Sunny    )=-2/5 log2( 2/5 ) -2/5 log2( 2/5 )     =0.971
+E(Outlook = Overcast )=-1 log2( 1 ) -0 log2( 0 )             = 0
+E(Outlook = Rainy    )=-2/5 log2( 2/5 ) -2/5 log2( 2/5 )     =0.971
+I( Outlook )          =5/14 * 0.971 + 4/14 * 0 +5/14 * 0.971 = 0.693
+
+Gain( Outlook  )= E(s) - I( Outlook ) = 0.94 - 0.693 = 0.247
+
+---------------------
+E(Windy   = Weak    )=-6/8 log2( 6/8 ) -2/8 log2( 2/8 )     = 0.811
+E(Windy   = Strong  )=-3/6 log2(3/6 ) -3/6 log2(3/6 )       = 1
+I(Windy   )          =6/14 *1 + 8/14 * 0.811                = 0.892
+Gain( Windy  )= E(s) - I( Windy ) = 0.94 - 0.892 = 0.048
+
+---------------------------
+Gain( Temperature   )= 0.94 - 0.911 = 0.029 
+
+---------------------------
+Gain( Humidity  )= 0.94 - 0.788 = 0.152
+--------------------------
+Outlook  
+{Sunny  { Humidity { normal: yes , high : no  }  } , - 
+Overcast  { yes } ,-
+ Rainy  { Windy { strong : no , week: yes  } }    }
+
+
+Decision Tree Algorithm Advantages and Disadvantages
+Advantages:
+1.Decision Trees are easy to explain. It results in a set of rules.
+2.It follows the same approach as humans generally follow while making decisions.
+3.Interpretation of a complex Decision Tree model can be simplified by its visualizations. 
+Even a naive person can understand logic.
+4.The Number of hyper-parameters to be tuned is almost null.
+Disadvantages:
+1.There is a high probability of overfitting in Decision Tree.
+2.Generally, it gives low prediction accuracy for a dataset as compared to other machine learning algorithms.
+3.Information gain in a decision tree with categorical variables gives a biased response for attributes with greater no. of categories.
+4.Calculations can become complex when there are many class labels.
+
+We are in the midst of an unprecedented surge of interest in machine learning (ML) and artificial
+intelligence (AI) technologies. These tools, which allow computers to make data-derived predictions
+and automate decisions, have become part of daily life for billions of people. Ubiquitous digital
+services such as interactive maps, tailored advertisements, and voice-activated personal assistants
+are likely only the beginning. Some AI advocates even claim that AI’s impact will be as profound
+as “electricity or fire” that it will revolutionize nearly every field of human activity. This enthusiasm
+has reached international development as well  
+
+Emerging ML/AI applications promise to reshape healthcare and agriculture  in the developing world. ML and AI show tremendous potential for helping to achieve sustainable development objectives globally. They can
+improve efficiency by automating labor-intensive tasks, or offer new insights by finding patterns in
+large, complex datasets. 
+A recent report suggests that AI advances could double economic growth rates and increase labor productivity 40% by 2035

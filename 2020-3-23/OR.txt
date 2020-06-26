@@ -1,0 +1,14 @@
+n var                                 
+m basic var                           
+----------------------------       n log(n)                      chioch most nevative z    map[xi]=zi           str [] x;
+   x x x x x x x x x x             n log(n)                   xi chioch min potitve a  map[xi]= vec<>;
+b  a a a a a a a a a a    v                                   xi bj chioch 
+b          a a a a a a    v        n * n log(n)               row operation  {(1/a1) map[b1] , (1/a2) map[b2] ..... }
+b              a a a a    v               n                         calculate z
+b              a a a a    v
+   z z z z z z z z z z 
+
+   a1 1 1/a1 map[b1]=vec<>()
+   a2 0 (1/a2)R2-(1/a1)R1
+   a3 0
+   a4 0

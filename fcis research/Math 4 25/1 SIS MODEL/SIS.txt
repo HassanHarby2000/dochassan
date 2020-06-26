@@ -1,0 +1,31 @@
+there are no death and birthday
+so that N = S + I = Canstant  where S => good people , I => bad people , N => all poeple
+D S = - D I
+D  I = -B 
+alpha => rate of recovering
+baytal => rate of infection
+
+K= B-&
+m=B/N
+K ln c = ln z
+------------------------------------
+s(0) number of people that good
+---------------------------------
+DI = B/N (N- I) .I  - & I  = BN.I/N - BI.I/N  - & I = BI - BI.I/N  - & I
+   = (B-&)I - B/N I.I                                                           let u  = I ^ -1 , I = u ^ -1 
+                                                                                   DI = - u ^ -2  . Du
+- u ^ -2  . Du =  (B-&) u ^ -1   -  B/N u ^ -2   * u ^ 2
+ -Du =  (B-&) u   -  B/N                          
+  Du =  -(B-&) u  +  B/N                      let K= B-&  m=B/N
+  Du =  -k u  + m   
+   du/ ( -k u  + m   )  = dt
+  (-1/k) .  ln(  -k u  + m )  = t  + c
+
+      ln(  -k u  + m ) = -kt +kc           let kc = ln z
+      ln(  -k u  + m ) = -kt + ln z       
+      -k u  + m = e ^ (-kt + ln z)  = e ^ (-kt) . z
+      -k I ^ -1 + m =  e ^ (-kt) . z
+      -k I ^ -1     =  e ^ (-kt) . z  - m
+      -k / ( e ^ (-kt) . z  - m ) = I
+      I =  k / (  m - e ^ (-kt) . z  ) 
+          

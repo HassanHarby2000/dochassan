@@ -1,0 +1,5 @@
+this app is a html and js pragram 
+open with google chrome
+enter your text in textarea
+than click on Run button to sho data in format (char   frequency   code)
+open the console if you want see the tree and number of character and number of bits .

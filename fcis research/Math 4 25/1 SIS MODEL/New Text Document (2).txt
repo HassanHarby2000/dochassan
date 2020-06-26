@@ -1,0 +1,14 @@
+methods to solve ODE using separation of variables
+
+
+
+exact differential equation
+
+Bernoulli differential equation
+
+constant coefficient differential equations  m2 ,m1..
+
+The auxiliary equation is
+
+
+Differential operators 

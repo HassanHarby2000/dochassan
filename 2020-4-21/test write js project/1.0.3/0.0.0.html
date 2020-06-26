@@ -1,0 +1,90 @@
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  
+  <meta name="description" content="">
+
+  <title>Home</title>
+    <link rel="stylesheet" href="css/mobirise-icons.css">
+  <link rel="stylesheet" href="css/tether.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="css/theme-style.css">
+  <link rel="stylesheet" href="css/gallery-style.css">
+  <link rel="stylesheet" href="css/mbr-additional.css" type="text/css">
+
+
+
+</head>
+<body> 
+<script >
+console.log(1);
+class Dclass{
+
+constructor(e,t=""){
+this.type="div"; this.class="";this.innerHTML=t, this.src=""; this.herf =""; this.text="";
+this.name=""; this.type_input="";  this.objs=null;
+this.style=e;}
+ };
+var firstdiv ={"type":"div","class":" h-100 w-200 ","innerHTML":"","src":"","herf":"", "value":"text","name":"","type_input":"" ,"style" : "background:green","objs":
+null
+}
+var data=
+[new Dclass("background:green;width:200px;height:200px;color:white","the safe for you")
+,
+{"type":"div","class":"","innerHTML":"","src":"","herf":"", "value":"text","name":"","type_input":"" ,"style" : "","objs":
+null
+},
+{"type": "div" , "class":"bg-success  text-center" ,"innerHTML":"", "src" : "" , "herf" : "" , "value":"text","name":"", "type_input" : "submit" ,"style" : "","objs":
+[{"type": "input" , "class":"btn btn-primary" ,"innerHTML":"","src" : "" , "herf" : "" , "value":"text","name":"", "type_input" : "submit" ,"style" : "","objs":
+null   }]
+}
+]
+;
+</script>
+<script >
+
+function showobj(data,perent){
+for(var i=0;i< data.length ; i++ ){
+       var element = document.createElement(data[i].type); 
+           element.setAttribute('href',data[i].href); 
+           element.setAttribute('class', data[i].class);
+           element.setAttribute('value', data[i].value); 
+           element.setAttribute('type', data[i].type_input); 
+           element.setAttribute('style', data[i].style); 
+          element.innerHTML=data[i].innerHTML;
+if(data[i].objs!=null)showobj(data[i].objs,element );
+  if(perent.appendChild !="undefined")   
+ perent.appendChild(element); 
+ }
+    
+} 
+
+showobj(data,document.body);
+ 
+   console.log(data.length);
+</script>
+
+
+
+
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/tether.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/smooth-scroll.js"></script>
+  <script src="js/bootstrap-carousel-swipe.js"></script>
+  <script src="js/jquery.mb.vimeo_player.js"></script>
+  <script src="js/masonry.pkgd.min.js"></script>
+  <script src="js/imagesloaded.pkgd.min.js"></script>
+  <script src="js/js/script.js"></script>
+  <script src="js/gallery-player.min.js"></script>
+  <script src="js/gallery-script.js"></script>
+  <script src="js/slidervideo.js"></script>
+</body> 

@@ -1,0 +1,8 @@
+  <link rel="stylesheet" href="mobirise-icons.css">
+  <link rel="stylesheet" href="tether.min.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap-grid.min.css">
+  <link rel="stylesheet" href="bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="theme-style.css">
+  <link rel="stylesheet" href="gallery-style.css">
+  <link rel="stylesheet" href="mbr-additional.css" type="text/css">

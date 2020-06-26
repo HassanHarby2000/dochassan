@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>edit sound </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+   <a href="../"> <h1>Dashboard </h1> </a>
+ 
+ <input type="file" id="mFileInput"/>
+    <audio id="sound" controls ></audio>
+
+
+    <h1>Simple Recorder </h1>
+     
+   <div id="controls">
+  	 <button id="recordButton">Record</button>
+  	 <button id="pauseButton" disabled>Pause</button>
+  	 <button id="stopButton" disabled>Stop</button>
+    </div>
+    <div id="formats">Format: start recording to see sample rate</div>
+  	<p><strong>Recordings:</strong></p>
+  	<ol id="recordingsList"></ol>
+    <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+  	<script src="js/recorder.js"></script>
+  	<script src="js/app.js"></script>
+<script >
+ 
+ 
+function byId(e){return document.getElementById(e);}
+
+window.addEventListener('load', onDocLoaded, false);
+
+function onDocLoaded()
+{
+    byId('mFileInput').addEventListener('change', onChosenFileChange, false);
+}
+
+function onChosenFileChange(evt)
+{
+    var fileType = this.files[0].type;
+
+    if (fileType.indexOf('audio') != -1)
+        loadFileObject(this.files[0], onSoundLoaded);
+
+ 
+}
+
+function loadFileObject(fileObj, loadedCallback)
+{
+    var reader = new FileReader();
+    reader.onload = loadedCallback;
+    reader.readAsDataURL( fileObj );
+}
+
+function onSoundLoaded(evt)
+{
+    byId('sound').src = evt.target.result;
+    byId('sound').play();
+}
+</script>
+  </body>
+</html>
